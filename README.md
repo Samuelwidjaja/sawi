@@ -1,9 +1,23 @@
 # **Link website: **
+https://tradcard.adaptable.app/
 
 ## Cara saya mengimplementasikan _checklist - checklist_ di ketentuan tugas: 
+Cara saya mengimplementasikan checklist adalah dengan mengikuti ulang tutorial 0 dan 1 pada web PBP Ganjil. Kemudian saya ubah dikit agar sisa checklist pada tugas juga dapat di checklist.
 
 ## Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+Virtual environment digunakan dalam pengembangan perangkat lunak Python, termasuk aplikasi web Django, karena:
 
+1. **Isolasi Lingkungan:** Membuat lingkungan kerja terisolasi dari sistem operasi untuk menghindari konflik dan masalah dependensi.
+
+2. **Pengelolaan Dependensi:** Memungkinkan manajemen dependensi yang independen untuk setiap proyek.
+
+3. **Kebersihan dan Keselamatan:** Menghindari pencampuran paket dan dependensi yang dapat merusak proyek.
+
+4. **Reproducibility:** Membuat lingkungan yang dapat direproduksi dengan mudah untuk berbagi proyek dengan orang lain.
+
+5. **Kemudahan Penggunaan:** Memudahkan instalasi, penghapusan, dan manajemen paket Python.
+
+Meskipun memungkinkan untuk tidak menggunakan virtual environment, disarankan untuk meninggalkan praktik ini karena dapat menghemat waktu dan memastikan pengembangan yang lebih terstruktur dan aman.
 ## Apakah itu MVC, MVT, MVVM dan apa perbedaan dari ketiganya?
 MVC (Model-View-Controller):
 
