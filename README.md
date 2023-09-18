@@ -84,3 +84,35 @@ Model: Sama seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis.
 View: Ini adalah komponen yang menangani tampilan atau antarmuka pengguna, seperti dalam MVC dan MVT.
 ViewModel: ViewModel adalah lapisan tambahan yang berfungsi sebagai perantara antara Model dan View. Ini mengubah data dari Model menjadi format yang dapat ditampilkan di View dan merespons perubahan di View dengan mengupdate Model.
 Perbedaan utama: MVVM adalah arsitektur yang umumnya digunakan dalam pengembangan aplikasi berbasis platform seperti Xamarin (untuk pengembangan aplikasi seluler) atau dalam aplikasi berbasis framework seperti AngularJS (untuk pengembangan web). ViewModel adalah komponen unik yang membedakannya dari MVC dan MVT, dan tujuannya adalah memisahkan logika tampilan dari Model dan menghubungkannya dengan View.
+
+## Apa perbedaan antara form POST dan form GET dalam Django?
+Perbedaan utama antara penggunaan metode POST dan GET dalam Django adalah sebagai berikut:
+
+**Metode Pengiriman Data:**
+
+- **POST:** Saat Anda menggunakan metode POST dalam formulir, data yang dikirim oleh formulir akan disertakan secara tersembunyi dalam permintaan HTTP, sehingga tidak terlihat di URL. Ini berarti data dikirim sebagai bagian dari badan permintaan, menjadikannya lebih aman untuk mengirim data sensitif seperti kata sandi.
+
+- **GET:** Jika Anda memilih metode GET dalam formulir, data yang dikirim oleh formulir akan ditambahkan ke URL sebagai bagian dari string query. Data ini akan terlihat di URL dan dapat dengan mudah diakses melalui tautan URL. Metode ini cocok untuk mengirim data yang tidak sensitif, tetapi tidak direkomendasikan untuk data yang bersifat rahasia karena dapat terlihat oleh siapa saja.
+
+**Ukuran Data:**
+
+- **POST:** Anda dapat mengirimkan volume data yang lebih besar dengan metode POST karena data dikirim sebagai bagian dari badan permintaan HTTP. Ini cocok untuk mengirim file gambar atau data yang lebih besar.
+
+- **GET:** Metode GET cocok untuk mengirimkan data yang lebih kecil karena data harus dimasukkan ke dalam string query URL. Ini memiliki batasan pada jumlah data yang dapat Anda kirim.
+
+**Keamanan:**
+
+- **POST:** Metode POST lebih aman untuk mengirim data sensitif karena data tidak terlihat di URL. Django juga menyediakan perlindungan terhadap serangan CSRF (Cross-Site Request Forgery) yang dirancang khusus untuk melindungi permintaan POST.
+
+- **GET:** Data yang dikirim melalui metode GET akan terlihat di URL, sehingga lebih rentan terhadap serangan dan potensi pencurian data. Oleh karena itu, sebaiknya tidak digunakan untuk data yang bersifat rahasia.
+
+**Penggunaan Umum:**
+
+- **POST:** Biasanya digunakan ketika Anda perlu mengirim data yang akan mengubah atau memproses sesuatu di server, seperti pengiriman formulir pendaftaran atau komentar.
+
+- **GET:** Biasanya digunakan ketika Anda ingin mengirim data yang hanya akan digunakan untuk mengambil atau menampilkan informasi, seperti melakukan pencarian atau filter pada halaman web.
+## Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
