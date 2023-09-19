@@ -2,7 +2,60 @@
 https://tradcard.adaptable.app/
 
 ## Cara saya mengimplementasikan _checklist - checklist_ di ketentuan tugas: 
-Cara saya mengimplementasikan checklist adalah dengan mengikuti ulang tutorial 0 dan 1 pada web PBP Ganjil. Kemudian saya ubah dikit agar sisa checklist pada tugas juga dapat di checklist.
+**Membuat Proyek Django Baru:**
+django-admin startproject main
+
+**Membuat Aplikasi "main":**
+python manage.py startapp main
+Routing Proyek:
+Buka file namaprojek/urls.py dan tambahkan routing untuk aplikasi "main" di sana. Contoh:
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('main.urls')),  # Tambahkan ini untuk routing ke aplikasi "main"
+]
+**Membuat Model "Item":**
+Buka file main/models.py dan definisikan model "Item" seperti yang Anda inginkan:
+
+from django.db import models
+
+class Item(models.Model):
+    name = models.CharField(max_length=255)
+    amount = models.IntegerField()
+    description = models.TextField()
+    
+**Membuat Fungsi di views.py:**
+Buka file main/views.py dan buat sebuah fungsi yang akan dikembalikan ke dalam template HTML:
+
+from django.shortcuts import render
+
+def my_view(request):
+    nama_aplikasi = "Nama Aplikasi Anda"
+    nama_kelas = "Nama Kelas Anda"
+    return render(request, 'template.html', {'nama_aplikasi': nama_aplikasi, 'nama_kelas': nama_kelas})
+Membuat Template HTML:
+Buat template HTML dengan nama template.html dalam direktori main/templates. Anda bisa menggunakan template ini untuk menampilkan nama aplikasi dan nama kelas Anda.
+
+**Routing Aplikasi "main":**
+Buat file main/urls.py jika belum ada, dan tambahkan routing untuk fungsi yang telah Anda buat di views.py:
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.my_view, name='my_view'),
+]
+Mengaplikasikan Migrasi dan Migrasi Database:
+Jalankan perintah-perintah berikut untuk membuat migrasi dan menerapkan migrasi ke database:
+
+python manage.py makemigrations
+python manage.py migrate
+
+**Deployment ke Adaptable:**
+connect dengan github di adaptable dan mencoba deploy app
 
 ## Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 Virtual environment digunakan dalam pengembangan perangkat lunak Python, termasuk aplikasi web Django, karena:
