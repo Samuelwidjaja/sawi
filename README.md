@@ -2,13 +2,7 @@
 https://tradcard.adaptable.app/
 
 ## Cara saya mengimplementasikan _checklist - checklist_ di ketentuan tugas: 
- Membuat sebuah proyek Django baru.
- Membuat aplikasi dengan nama main pada proyek tersebut.
- Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
- Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib sebagai berikut.
-name sebagai nama item dengan tipe CharField.
-amount sebagai jumlah item dengan tipe IntegerField.
-description sebagai deskripsi item dengan tipe TextField.
+Cara saya mengimplementasikan checklist adalah dengan mengikuti ulang tutorial 0 dan 1 pada web PBP Ganjil. Kemudian saya ubah dikit agar sisa checklist pada tugas juga dapat di checklist.
 
 ## Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 Virtual environment digunakan dalam pengembangan perangkat lunak Python, termasuk aplikasi web Django, karena:
