@@ -9,12 +9,14 @@ from main.models import Item
 
 def show_main(request):
     items = Item.objects.all()
+    total = items.count()
 
     context = {
         'name': 'James Samuel Widjaja', # Nama kamu
         'class': 'PBP A', # Kelas PBP kamu
         'title' : 'Sawi Trading Card',
-        'items': items
+        'items': items,
+        'total': total,
     }
 
     return render(request, "main.html", context)
@@ -44,3 +46,4 @@ def show_xml_by_id(request, id):
 def show_json_by_id(request, id):
     data = Item.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
