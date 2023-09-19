@@ -169,3 +169,13 @@ membuat fungsi untuk kelima format tsb dan menambahkan return sesuai format
 
 **Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.**
 pada main.urls membuat path yang baru untuk setiap format
+
+![image](https://github.com/Samuelwidjaja/sawi/assets/119392779/40bed75f-a6d7-4665-b4fc-dc7f2a9c2cc1)
+![image](https://github.com/Samuelwidjaja/sawi/assets/119392779/fe94313a-2ab7-4097-8f86-3a65734038d8)
+![image](https://github.com/Samuelwidjaja/sawi/assets/119392779/e20ef149-127e-424b-bb4a-023c82fe1e3f)
+![image](https://github.com/Samuelwidjaja/sawi/assets/119392779/698b7ee7-59e7-44f6-b0bc-a042fc02e7ca)
+![image](https://github.com/Samuelwidjaja/sawi/assets/119392779/9ca1d797-9e73-4073-8fe0-1ab3b4446fed)
+
+
+
+
