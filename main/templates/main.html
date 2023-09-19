@@ -8,33 +8,30 @@
 
     <h5>Class:</h5>
     <p>{{class}}</p>
-{% endblock content %}
 
 <table>
     <tr>
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
-        <th>Date Added</th>
     </tr>
 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
-    {% for item in items %}
+    {% for product in products %}
         <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.date_added}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
         </tr>
     {% endfor %}
 </table>
 
 <br />
 
-<a href="{% url 'main:create_item' %}">
+<a href="{% url 'main:create_product' %}">
     <button>
-        Add New Item
+        Add New Product
     </button>
 </a>
 

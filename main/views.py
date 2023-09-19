@@ -1,53 +1,46 @@
 # views.py in the 'main' app
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from main.forms import ItemForm
+from main.forms import ProductForm
 from django.urls import reverse
 from django.http import HttpResponse
 from django.core import serializers
-from main.models import Item
-
-data = Item.objects.filter(pk=id)
+from main.models import Product
 
 def show_main(request):
-    items = Item.objects.all()
+    products = Product.objects.all()
 
     context = {
         'name': 'James Samuel Widjaja', # Nama kamu
         'class': 'PBP A', # Kelas PBP kamu
-        'items': items
+        'title' : 'Sawi Trading Card',
+        'products': products
     }
 
     return render(request, "main.html", context)
 
-def create_item(request):
-    form = ItemForm(request.POST or None)
+def create_product(request):
+    form = ProductForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
-    return render(request, "create_item.html", context)
+    return render(request, "create_product.html", context)
 
 def show_xml(request):
-    data = Item.objects.all()
-
-def show_xml(request):
-    data = Item.objects.all()
+    data = Product.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = Item.objects.all()
-
-def show_json(request):
-    data = Item.objects.all()
+    data = Product.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
-    data = Item.objects.filter(pk=id)
+    data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json_by_id(request, id):
-    data = Item.objects.filter(pk=id)
+    data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
