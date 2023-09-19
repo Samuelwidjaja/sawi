@@ -108,4 +108,11 @@ Pencocokan dengan Model Objek dalam Aplikasi Web: JSON dapat dengan mudah diubah
 Dukungan untuk API Web: JSON sangat cocok untuk digunakan dalam API web karena kesederhanaan dan dukungannya dalam lingkungan web. Banyak layanan web dan platform, termasuk RESTful API, menggunakan JSON sebagai format data standar untuk berkomunikasi dengan aplikasi klien.
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+**Membuat input form untuk menambahkan objek model pada app sebelumnya.**
+membuat html baru "create_item" dan menambahkan href di main.html serta menambahkan button agar dapat digunakan dan bisa menambahkan item
 
+**Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.**
+membuat fungsi untuk kelima format tsb dan menambahkan return sesuai format
+
+**Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.**
+pada main.urls membuat path yang baru untuk setiap format
