@@ -1,6 +1,7 @@
 # **Link website: **
 https://tradcard.adaptable.app/
 
+## Tugas 2
 ## Cara saya mengimplementasikan _checklist - checklist_ di ketentuan tugas: 
 **Membuat Proyek Django Baru:**
 django-admin startproject main
@@ -93,6 +94,7 @@ View: Ini adalah komponen yang menangani tampilan atau antarmuka pengguna, seper
 ViewModel: ViewModel adalah lapisan tambahan yang berfungsi sebagai perantara antara Model dan View. Ini mengubah data dari Model menjadi format yang dapat ditampilkan di View dan merespons perubahan di View dengan mengupdate Model.
 Perbedaan utama: MVVM adalah arsitektur yang umumnya digunakan dalam pengembangan aplikasi berbasis platform seperti Xamarin (untuk pengembangan aplikasi seluler) atau dalam aplikasi berbasis framework seperti AngularJS (untuk pengembangan web). ViewModel adalah komponen unik yang membedakannya dari MVC dan MVT, dan tujuannya adalah memisahkan logika tampilan dari Model dan menghubungkannya dengan View.
 
+## Tugas 3
 ## Apa perbedaan antara form POST dan form GET dalam Django?
 Perbedaan utama antara penggunaan metode POST dan GET dalam Django adalah sebagai berikut:
 
@@ -185,6 +187,30 @@ pada main.urls membuat path yang baru untuk setiap format
 **JSON by ID**
 ![image](https://github.com/Samuelwidjaja/sawi/assets/119392779/9ca1d797-9e73-4073-8fe0-1ab3b4446fed)
 
+## Tugas 4
+## Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+UserCreationForm adalah sebuah formulir bawaan (built-in form) yang disediakan oleh Django untuk membantu dalam proses pendaftaran pengguna (user registration) dalam aplikasi web. Formulir ini digunakan untuk membuat pengguna baru dengan mengumpulkan informasi seperti username, password, dan konfirmasi password. Kelebihan dari UserCreationForm adalah bahwa ia memudahkan pengembang untuk mengimplementasikan fitur pendaftaran pengguna dengan cepat dan aman, karena ia secara otomatis melakukan validasi dan enkripsi password. Kelemahan utamanya adalah formulir ini memiliki tampilan standar, sehingga perlu disesuaikan secara ekstensif jika Anda menginginkan tampilan yang berbeda.
+
+## Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+**Autentikasi (Authentication):** Autentikasi adalah proses verifikasi identitas pengguna. Dalam konteks Django, ini mencakup verifikasi apakah pengguna adalah pengguna yang sah dengan memeriksa kombinasi username dan password mereka atau metode otentikasi lainnya seperti OAuth atau token.
+**Otorisasi (Authorization):** Otorisasi adalah proses pengendalian akses terhadap sumber daya (seperti halaman web atau data) yang dilakukan setelah autentikasi. Ini memutuskan apa yang diizinkan atau tidak diizinkan oleh pengguna yang sudah diotentikasi. Django memiliki sistem otorisasi yang kuat yang memungkinkan Anda mengendalikan hak akses pengguna ke berbagai bagian dari aplikasi Anda berdasarkan izin.
+
+## Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookies adalah data kecil yang disimpan di sisi klien (browser) saat pengguna berinteraksi dengan aplikasi web. Django menggunakan cookies untuk mengelola data sesi pengguna dengan cara yang aman. Saat seorang pengguna masuk ke dalam sesi, Django menyimpan informasi sesi seperti ID pengguna atau preferensi di cookie yang dikirim ke browser pengguna. Data sesi ini dapat digunakan untuk menjaga status masuk pengguna atau menyimpan preferensi pengguna antar permintaan.
+
+## Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Penggunaan cookies dalam pengembangan web dapat dianggap aman jika dilakukan dengan benar. Namun, ada beberapa risiko potensial yang harus diwaspadai, termasuk:
+**Cross-Site Scripting (XSS):** Serangan XSS dapat memanipulasi cookies jika tidak ada langkah-langkah keamanan yang memadai untuk menghindarinya.
+**Session Hijacking:** Jika cookie sesi dicuri oleh pihak yang tidak berwenang, penggunaan sesi pengguna dapat disalahgunakan.
+**Data Privacy:** Cookies dapat digunakan untuk melacak perilaku pengguna, yang dapat menimbulkan masalah privasi jika tidak diatur dengan benar.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+**Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**
 
 
+**Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
+
+**Menghubungkan model Item dengan User.**
+
+**Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
 
