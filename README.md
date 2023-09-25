@@ -206,11 +206,58 @@ Penggunaan cookies dalam pengembangan web dapat dianggap aman jika dilakukan den
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 **Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**
-
+Mengimplementasikan fungsi-fungsi dengan cara membuat registrasi.html dan login.html. Kemudian menambahkan button login, logout agar pengguna dapat mengakses aplikasi dengan lancar
 
 **Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
+Pada web yang sudah dibuat registrasi 2 akun pengguna, dan pada akun tsb membuat 3 item sebgaai dummy data
 
 **Menghubungkan model Item dengan User.**
+Tahap awal mengimpor
+from django.contrib.auth.models import User
+
+Pada model Item yang sudah dibuat, tambahkan potongan kode berikut:
+class Item(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+kode diatas berfungsi untuk menghubungkan satu produk dengan satu user melalui sebuah relationship, dimana sebuah produk pasti terasosiasikan dengan seorang user. Lebih lanjutnya terkait ForeignKey akan dipelajari pada mata kuliah Basis Data. Penjelasan lebih lanjut terkait ForeignKey pada Django dapat dilihat di sini.
+
+kemudian pada views menambahkan kode pada fungsi create_item
+def create_item(request):
+ form = ItemForm(request.POST or None)
+
+ if form.is_valid() and request.method == "POST":
+     product = form.save(commit=False)
+     product.user = request.user
+     product.save()
+     return HttpResponseRedirect(reverse('main:show_main'))
+Parameter commit=False yang digunakan pada potongan kode diatas berguna untuk mencegah Django agar tidak langsung menyimpan objek yang telah dibuat dari form langsung ke database. Hal tersebut memungkinkan kita untuk memodifikasi terlebih dahulu objek tersebut sebelum disimpan ke database. Pada kasus ini, kita akan mengisi field user dengan objek User dari return value request.user yang sedang terotorisasi untuk menandakan bahwa objek tersebut dimiliki oleh pengguna yang sedang login.
+
+Lalu ubah fungsi show_main menjadi sebagai berikut.
+
+def show_main(request):
+    products = Product.objects.filter(user=request.user)
+
+    context = {
+        'name': request.user.username,
+
+Potongan kode diatas berfungsi untuk menampilkan objek Product yang terasosiasikan dengan pengguna yang sedang login. Hal tersebut dilakukan dengan menyaring seluruh objek dengan hanya mengambil Product yang dimana field user terisi dengan objek User yang sama dengan pengguna yang sedang login.
+Kode request.user.username berfungsi untuk menampilkan username pengguna yang login pada halaman main.
 
 **Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
+Pada awalnya mengimpor 
+import datetime
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
+kemudian menambahkan potongan kode pada fungsi login user
+if user is not None:
+    login(request, user)
+    response = HttpResponseRedirect(reverse("main:show_main")) 
+    response.set_cookie('last_login', str(datetime.datetime.now()))
+    return response
+untuk context menambahkan
+'last_login': request.COOKIES['last_login'],
+pada fungsi logout juga ditambahkan
+ response.delete_cookie('last_login')
+ dan yang terakhir untuk menampilkan last login
+ <h5>Sesi terakhir login: {{ last_login }}</h5>
