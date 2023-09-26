@@ -92,3 +92,24 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def add_amount(request, id):
+    data = Item.objects.get(pk=id)
+    data.amount += 1
+    data.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def reduce_amount(request, id):
+    data = Item.objects.get(pk=id)
+    if data.amount -1 < 0:
+        return HttpResponseRedirect(reverse('main:show_main'))
+    else:
+        data.amount -= 1
+        data.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+    
+def hapus(request,id):
+    data = Item.objects.get(pk=id)
+    data.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
