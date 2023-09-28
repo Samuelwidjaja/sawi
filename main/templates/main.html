@@ -16,6 +16,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
+        <th>Amount</th>
     </tr>
 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -25,15 +26,34 @@
             <td>{{item.name}}</td>
             <td>{{item.price}}</td>
             <td>{{item.description}}</td>
+            <td>{{ item.amount }}
+                <a href = "add_amount/{{item.id}}">
+                    <button> Menambah amount </button>
+                </a>
+                <a href = "reduce_amount/{{item.id}}">
+                    <button> Mengurangi amount </button>
+                </a>
+            </td>
+            <td> 
+                <a href = "hapus/{{item.id}}">
+                    <button> Hapus Item </button>
+                </a>
+            </td>
         </tr>
     {% endfor %}
 </table>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 
 <br />
 
 <a href="{% url 'main:create_item' %}">
     <button>
         Add New Item
+    </button>
+</a>
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
     </button>
 </a>
 
