@@ -14,37 +14,27 @@
         <p>Kamu telah menambahkan {{ total }} items!</p>
     </div>
 
-    <table class="data-table">
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Amount</th>
-        </tr>
-
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
+    <div class="cards">
         {% for item in items %}
-            <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.description }}</td>
-                <td>{{ item.amount }}
-                    <a href="add_amount/{{ item.id }}">
-                        <button class="amount-button">Menambah amount</button>
-                    </a>
-                    <a href="reduce_amount/{{ item.id }}">
-                        <button class="reduce-button">Mengurangi amount</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="hapus/{{ item.id }}">
-                        <button class="remove-button">Hapus Item</button>
-                    </a>
-                </td>
-            </tr>
+        <div class="card {% if forloop.last %}new-card{% endif %}">
+            <h3>{{ item.name }}</h3>
+            <p>Price: {{ item.price }}</p>
+            <p>Description: {{ item.description }}</p>
+            <p>Amount: {{ item.amount }}</p>
+            <div class="card-buttons">
+                <a href="add_amount/{{ item.id }}">
+                    <button class="amount-button">Menambah amount</button>
+                </a>
+                <a href="reduce_amount/{{ item.id }}">
+                    <button class="reduce-button">Mengurangi amount</button>
+                </a>
+                <a href="hapus/{{ item.id }}">
+                    <button class="remove-button">Hapus Item</button>
+                </a>
+            </div>
+        </div>
         {% endfor %}
-    </table>
+    </div>
 
     <div class="last-login">
         <h5>Sesi terakhir login: {{ last_login }}</h5>
@@ -62,7 +52,7 @@
 
 <style>
     .container {
-        background-color: #f7f7f7;
+        background-color: #ececec;
         border-radius: 5px;
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -81,22 +71,38 @@
 
     h5 {
         font-weight: bold;
-        
     }
 
-    .data-table {
-        width: 100%;
-        border-collapse: collapse;
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         margin-top: 20px;
     }
 
-    .data-table th, .data-table td {
-        border: 1px solid #ccc;
+    .card {
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         padding: 10px;
+        margin: 10px;
+        width: calc(33.33% - 20px);
         text-align: left;
     }
 
-    .amount-button {
+    .card h3 {
+        color: #010101b1;
+    }
+
+    .card-buttons {
+        margin-top: 10px;
+    }
+
+    .amount-button,
+    .reduce-button,
+    .remove-button,
+    .action-button,
+    .logout-button {
         background-color: #007bff;
         color: #fff;
         border: none;
@@ -105,37 +111,24 @@
         cursor: pointer;
         margin-right: 5px;
     }
-    .reduce-button{
-        background-color: #ff8c00de;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-right: 5px;
-    }
-    .remove-button, .logout-button{
-        background-color: #ff0000cf;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-right: 5px;
-    }
 
-    .action-button{
-        background-color: #00ff4cb6;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-right: 5px;
-    }
-
-    .amount-button:hover, .remove-button:hover, .action-button:hover {
+    .amount-button:hover,
+    .remove-button:hover,
+    .action-button:hover {
         background-color: #0056b3;
+    }
+
+    .reduce-button {
+        background-color: #ff8c00de;
+    }
+
+    .remove-button,
+    .logout-button {
+        background-color: #ff0000cf;
+    }
+
+    .action-button {
+        background-color: #00ff4cb6;
     }
 
     .last-login {
@@ -146,6 +139,9 @@
     .action-buttons {
         text-align: center;
         margin-top: 20px;
+    }
+    .new-card {
+        background-color: #e8f8ff; /* Warna latar belakang card terbaru */
     }
 </style>
 {% endblock content %}

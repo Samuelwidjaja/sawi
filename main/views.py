@@ -14,7 +14,6 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
-from django.urls import reverse
 
 @login_required(login_url='/login')
 def show_main(request):
