@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-m)d1r+u-vla287uhx_5jmnuevi159#%lt&dp95+)6vesl=agt%
 
 # Automatically determine environment by detecting if DATABASE_URL variable.
 # DATABASE_URL is provided by Heroku if a database add-on is added (e.g. Heroku Postgres).
-PRODUCTION = env.bool('PRODUCTION', False) # type: ignore
+PRODUCTION = env.bool('PRODUCTION', False) 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -140,3 +140,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
