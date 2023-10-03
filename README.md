@@ -294,3 +294,13 @@ Memungkinkan fleksibilitas yang tinggi dalam mengatur tampilan.
 Cocok digunakan ketika Anda ingin mengendalikan setiap aspek tampilan dengan mudah dan tidak ingin bergantung pada desain yang sudah ada.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+**Kustomisasi halaman login, register, dan tambah inventori semenarik mungkin.**
+Untuk setiap HTML saya mengkustomisasi satu-satu menggunakan CSS
+
+**Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.**
+Membuat class cards baru pada CSS dan di loop untuk setiap item yang ditambahkan
+
+**Memberikan warna yang berbeda (teks atau background) pada baris terakhir dari item pada inventori anda menggunakan CSS.**
+pada looping item menambahkan        
+<div class="card {% if forloop.last %}new-card{% endif %}">
+agar untuk setiap loop yang terakhir ditambahkan warna pada background untuk membedakannya
