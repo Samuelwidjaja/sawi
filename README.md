@@ -261,3 +261,36 @@ pada fungsi logout juga ditambahkan
  response.delete_cookie('last_login')
  dan yang terakhir untuk menampilkan last login
  <h5>Sesi terakhir login: {{ last_login }}</h5>
+
+ ## Tugas 5
+**Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.**
+**Manfaat**: Element selector digunakan untuk memilih elemen HTML secara langsung berdasarkan nama elemennya (misalnya, h1, p, div). Ini adalah selektor paling umum dan paling sederhana dalam CSS. Manfaatnya adalah untuk memberikan gaya pada semua elemen yang memiliki nama yang sama tanpa perlu menambahkan kelas atau ID ke setiap elemen.
+**Kapan Menggunakan**: Element selector cocok digunakan ketika Anda ingin memberikan gaya yang serupa kepada banyak elemen dengan nama yang sama. Misalnya, jika Anda ingin mengubah semua teks dalam elemen p menjadi warna merah.
+
+**Jelaskan HTML5 Tag yang kamu ketahui.**
+Beberapa tag HTML5 yang umumnya digunakan antara lain:
+<header>: Untuk bagian atas halaman web yang biasanya berisi judul atau navigasi.
+<nav>: Untuk mengelompokkan elemen navigasi.
+<section>: Untuk mengelompokkan konten yang memiliki tema atau topik yang sama.
+<article>: Untuk konten mandiri yang dapat berdiri sendiri, seperti posting blog atau artikel berita.
+<aside>: Untuk konten tambahan yang terkait dengan konten utama, seperti sidebar.
+<footer>: Untuk bagian bawah halaman yang biasanya berisi informasi kontak atau hak cipta.
+
+**Jelaskan perbedaan antara margin dan padding.**
+**Margin**: Margin adalah ruang di luar batas elemen. Margin digunakan untuk mengatur jarak antara elemen dengan elemen lain di sekitarnya. Margin tidak memiliki latar belakang atau warna, hanya mengatur ruang.
+**Padding**: Padding adalah ruang di dalam batas elemen. Padding digunakan untuk mengatur jarak antara isi elemen dan batasnya. Padding bisa memiliki latar belakang dan warna yang akan mempengaruhi elemen dan area di sekitarnya.
+
+**Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**
+**Bootstrap:**
+Framework CSS yang komprehensif dengan komponen UI yang telah dibuat sebelumnya.
+Memiliki desain bawaan yang telah ditentukan.
+Membutuhkan lebih banyak kelas HTML untuk mengubah tampilan.
+Cocok digunakan ketika Anda ingin cepat mengembangkan situs dengan komponen yang telah ada dan gaya desain yang sudah ditentukan.
+
+**Tailwind CSS:**
+Framework CSS yang ringan dengan pendekatan utility-first.
+Tidak memiliki desain bawaan, Anda harus mendefinisikan gaya Anda sendiri menggunakan kelas.
+Memungkinkan fleksibilitas yang tinggi dalam mengatur tampilan.
+Cocok digunakan ketika Anda ingin mengendalikan setiap aspek tampilan dengan mudah dan tidak ingin bergantung pada desain yang sudah ada.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
