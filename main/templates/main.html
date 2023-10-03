@@ -1,60 +1,151 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container">
     <h1>Selamat datang di aplikasi {{ title }}</h1>
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
+    <div class="data">
+        <h5>Name:</h5>
+        <p>{{ name }}</p>
 
-    <h5>Class:</h5>
-    <p>{{class}}</p>
+        <h5>Class:</h5>
+        <p>{{ class }}</p>
 
-    <p> Kamu telah menambahkan {{ total }} items! </p>
+        <p>Kamu telah menambahkan {{ total }} items!</p>
+    </div>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Amount</th>
-    </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for item in items %}
+    <table class="data-table">
         <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.description}}</td>
-            <td>{{ item.amount }}
-                <a href = "add_amount/{{item.id}}">
-                    <button> Menambah amount </button>
-                </a>
-                <a href = "reduce_amount/{{item.id}}">
-                    <button> Mengurangi amount </button>
-                </a>
-            </td>
-            <td> 
-                <a href = "hapus/{{item.id}}">
-                    <button> Hapus Item </button>
-                </a>
-            </td>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Amount</th>
         </tr>
-    {% endfor %}
-</table>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
 
-<br />
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
-<a href="{% url 'main:create_item' %}">
-    <button>
-        Add New Item
-    </button>
-</a>
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.amount }}
+                    <a href="add_amount/{{ item.id }}">
+                        <button class="amount-button">Menambah amount</button>
+                    </a>
+                    <a href="reduce_amount/{{ item.id }}">
+                        <button class="reduce-button">Mengurangi amount</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="hapus/{{ item.id }}">
+                        <button class="remove-button">Hapus Item</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 
+    <div class="last-login">
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+    </div>
+
+    <div class="action-buttons">
+        <a href="{% url 'main:create_item' %}">
+            <button class="action-button">Add New Item</button>
+        </a>
+        <a href="{% url 'main:logout' %}">
+            <button class="logout-button">Logout</button>
+        </a>
+    </div>
+</div>
+
+<style>
+    .container {
+        background-color: #f7f7f7;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        width: 80%;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ff2200b1;
+    }
+
+    .data {
+        margin: 20px 0;
+    }
+
+    h5 {
+        font-weight: bold;
+        
+    }
+
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .data-table th, .data-table td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .amount-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    .reduce-button{
+        background-color: #ff8c00de;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    .remove-button, .logout-button{
+        background-color: #ff0000cf;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    .action-button{
+        background-color: #00ff4cb6;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    .amount-button:hover, .remove-button:hover, .action-button:hover {
+        background-color: #0056b3;
+    }
+
+    .last-login {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .action-buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
 {% endblock content %}

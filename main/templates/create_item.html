@@ -1,19 +1,63 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Add New Item</title>
+{% endblock meta %}
 
 {% block content %}
-<h1>Add New Item</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Item"/>
-            </td>
-        </tr>
-    </table>
-</form>
+<div class="container">
+    <h1>Add New Item</h1>
 
-{% endblock %}
+    <form method="POST">
+        {% csrf_token %}
+        <table class="form-table">
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Add Item" class="btn add-item-btn" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<style>
+    .container {
+        background-color: #f7f7f7;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+        width: 80%;
+    }
+
+    h1 {
+        text-align: center;
+        color: #007bff;
+    }
+
+    .form-table {
+        width: 100%;
+    }
+
+    .form-table tr td {
+        padding: 10px 0;
+    }
+
+    .btn.add-item-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn.add-item-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% endblock content %}
