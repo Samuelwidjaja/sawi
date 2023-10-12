@@ -304,3 +304,25 @@ Membuat class cards baru pada CSS dan di loop untuk setiap item yang ditambahkan
 pada looping item menambahkan        
 <div class="card {% if forloop.last %}new-card{% endif %}">
 agar untuk setiap loop yang terakhir ditambahkan warna pada background untuk membedakannya
+
+## Tugas 6
+
+**Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.**
+
+**Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.**
+
+**Jelaskan penerapan asynchronous programming pada AJAX.**
+
+**Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.**
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+
+
+
+
+
+
+
+
+
+
