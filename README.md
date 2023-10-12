@@ -308,10 +308,20 @@ agar untuk setiap loop yang terakhir ditambahkan warna pada background untuk mem
 ## Tugas 6
 
 **Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.**
+**Synchronous Programming (Program Sinkron):**
+Pada synchronous programming, tugas-tugas dieksekusi secara berurutan, satu per satu. Artinya, ketika suatu operasi dimulai, program akan menunggu hingga operasi tersebut selesai sebelum melanjutkan ke operasi berikutnya.
+Ini seringkali sederhana dan mudah dipahami, tetapi dapat mengakibatkan program menjadi lambat jika ada operasi yang memakan waktu lama. Selama operasi yang memakan waktu lama sedang berlangsung, program akan "terkunci" dan tidak dapat melakukan tugas lain.
+Ini adalah model standar dalam pemrograman konvensional, terutama di lingkungan pemrograman seperti bahasa Python, Java, dan C++.
+
+**Asynchronous Programming (Program Asinkron):**
+Pada asynchronous programming, tugas-tugas yang memakan waktu lama dapat dijalankan secara paralel atau di latar belakang tanpa menghentikan eksekusi program utama. Program tidak harus menunggu operasi selesai untuk melanjutkan ke tugas berikutnya.
+Ini berguna untuk mengatasi operasi yang memerlukan waktu lama, seperti mengunduh data dari internet, membaca atau menulis file, atau berinteraksi dengan perangkat keras.
+Asynchronous programming biasanya digunakan dalam lingkungan di mana responsivitas dan efisiensi sangat penting, seperti aplikasi web, jaringan, dan GUI (antarmuka grafis).
 
 **Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.**
 
 **Jelaskan penerapan asynchronous programming pada AJAX.**
+Pemrograman asinkron pada AJAX adalah cara untuk membuat permintaan HTTP dan memproses respons tanpa menghentikan eksekusi utama aplikasi web. Ini memberikan responsivitas dan efisiensi pada aplikasi. Pemrograman asinkron melibatkan fungsi panggilan balik, Promises, dan async/await dalam JavaScript. Ini meningkatkan pengalaman pengguna dengan menghindari pembekuan halaman dan mengoptimalkan penggunaan sumber daya.
 
 **Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.**
 
