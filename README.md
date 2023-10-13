@@ -294,3 +294,65 @@ Memungkinkan fleksibilitas yang tinggi dalam mengatur tampilan.
 Cocok digunakan ketika Anda ingin mengendalikan setiap aspek tampilan dengan mudah dan tidak ingin bergantung pada desain yang sudah ada.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+**Kustomisasi halaman login, register, dan tambah inventori semenarik mungkin.**
+Untuk setiap HTML saya mengkustomisasi satu-satu menggunakan CSS
+
+**Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.**
+Membuat class cards baru pada CSS dan di loop untuk setiap item yang ditambahkan
+
+**Memberikan warna yang berbeda (teks atau background) pada baris terakhir dari item pada inventori anda menggunakan CSS.**
+pada looping item menambahkan        
+<div class="card {% if forloop.last %}new-card{% endif %}">
+agar untuk setiap loop yang terakhir ditambahkan warna pada background untuk membedakannya
+
+## Tugas 6
+
+**Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.**
+**Synchronous Programming (Program Sinkron):**
+Pada synchronous programming, tugas-tugas dieksekusi secara berurutan, satu per satu. Artinya, ketika suatu operasi dimulai, program akan menunggu hingga operasi tersebut selesai sebelum melanjutkan ke operasi berikutnya.
+Ini seringkali sederhana dan mudah dipahami, tetapi dapat mengakibatkan program menjadi lambat jika ada operasi yang memakan waktu lama. Selama operasi yang memakan waktu lama sedang berlangsung, program akan "terkunci" dan tidak dapat melakukan tugas lain.
+Ini adalah model standar dalam pemrograman konvensional, terutama di lingkungan pemrograman seperti bahasa Python, Java, dan C++.
+
+**Asynchronous Programming (Program Asinkron):**
+Pada asynchronous programming, tugas-tugas yang memakan waktu lama dapat dijalankan secara paralel atau di latar belakang tanpa menghentikan eksekusi program utama. Program tidak harus menunggu operasi selesai untuk melanjutkan ke tugas berikutnya.
+Ini berguna untuk mengatasi operasi yang memerlukan waktu lama, seperti mengunduh data dari internet, membaca atau menulis file, atau berinteraksi dengan perangkat keras.
+Asynchronous programming biasanya digunakan dalam lingkungan di mana responsivitas dan efisiensi sangat penting, seperti aplikasi web, jaringan, dan GUI (antarmuka grafis).
+
+**Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.**
+Paradigma event-driven programming adalah suatu pendekatan dalam pemrograman di mana program merespons peristiwa atau "event" yang terjadi. Peristiwa ini bisa berupa interaksi pengguna (seperti klik tombol atau input pengguna), perubahan status aplikasi, atau peristiwa lainnya yang terjadi selama eksekusi program. Paradigma ini sangat umum dalam pengembangan aplikasi berbasis antarmuka pengguna (UI) yang melibatkan banyak interaksi pengguna.
+
+Salah satu contoh penerapannya pada tugas yang telah disajikan adalah saat pengguna mengklik tombol "Add Item" pada halaman web. Dalam paradigma event-driven, peristiwa ini adalah "event" yang dipicu oleh interaksi pengguna. JavaScript digunakan untuk menangani event ini dan memicu beberapa tindakan, seperti membuka modal, mengirim permintaan AJAX untuk menambahkan item, menutup modal setelah item ditambahkan, dan memperbarui tampilan daftar item. Semua tindakan ini diinisiasi oleh event pengguna (klik tombol "Add Item") dan merupakan contoh penerapan paradigma event-driven programming dalam pengembangan aplikasi web.
+
+**Jelaskan penerapan asynchronous programming pada AJAX.**
+Pemrograman asinkron pada AJAX adalah cara untuk membuat permintaan HTTP dan memproses respons tanpa menghentikan eksekusi utama aplikasi web. Ini memberikan responsivitas dan efisiensi pada aplikasi. Pemrograman asinkron melibatkan fungsi panggilan balik, Promises, dan async/await dalam JavaScript. Ini meningkatkan pengalaman pengguna dengan menghindari pembekuan halaman dan mengoptimalkan penggunaan sumber daya.
+
+**Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.**
+**Fetch API:**
+JavaScript Asli: Fetch API adalah bagian dari JavaScript asli, sehingga tidak memerlukan perpustakaan atau kerangka kerja tambahan, membuatnya lebih ringan.
+Berdasarkan Promise: Fetch berbasis promise, yang berarti ia menggunakan Promise JavaScript untuk menangani tanggapan, membuatnya lebih modern dan cocok untuk operasi asinkron.
+Modular: Anda dapat memilih untuk bekerja dengan modul JavaScript asli lainnya atau perpustakaan pihak ketiga untuk melengkapi Fetch API sesuai kebutuhan.
+Lebih Mudah Dipelajari: Bagi pengembang yang sudah akrab dengan JavaScript dan Promises, Fetch API mungkin lebih mudah dimengerti karena memanfaatkan fitur bahasa yang sudah ada.
+Tersandardisasi: Ini adalah standar untuk membuat permintaan HTTP dalam JavaScript modern, dan didukung dengan baik di peramban modern.
+
+**jQuery:**
+Kompatibilitas Cross-Browser: jQuery mengabstraksi banyak perbedaan lintas peramban, sehingga lebih mudah menulis kode yang berfungsi secara konsisten di berbagai peramban.
+Kesederhanaan: jQuery menyediakan sintaks yang disederhanakan dan ringkas untuk operasi umum, yang dapat meningkatkan produktivitas untuk tugas sederhana.
+Komprehensif: jQuery menawarkan beragam fungsi utilitas dan plugin, menjadikannya perpustakaan all-in-one untuk manipulasi DOM, animasi, dan AJAX, yang dapat mempercepat pengembangan.
+Proyek Berbasis Legacy: Masih banyak digunakan dalam proyek berbasis legacy atau proyek di mana sudah ada kode yang substansial yang dibangun di atas jQuery.
+Prototipe Cepat: Untuk prototipe cepat atau proyek-proyek kecil, jQuery bisa menjadi pilihan yang lebih cepat berkat sintaks yang sederhana dan ringkas.
+Teknologi Mana yang Lebih Baik:
+Pilihan antara Fetch API dan jQuery tergantung pada kebutuhan proyek Anda dan keahlian tim Anda. Untuk pengembangan web modern, terutama saat mengembangkan proyek baru, Fetch API sangat dianjurkan. Ini merupakan bagian dari JavaScript, lebih modern, dan menawarkan integrasi yang lebih baik dengan Promises, yang penting untuk menulis kode asinkron yang bersih dan mudah dipelihara.
+
+Namun, untuk memelihara proyek lama atau ketika berurusan dengan kode lama yang menggunakan jQuery secara ekstensif, masih masuk akal untuk terus menggunakan jQuery. Ini adalah perpustakaan yang handal yang mengabstraksi banyak kompleksitas yang terkait dengan kompatibilitas lintas peramban.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+
+
+
+
+
+
+
+
+
+
