@@ -180,7 +180,6 @@
     refreshItems()
 
     function addItem() {
-        alert("ea")
         fetch("{% url 'main:add_item_ajax' %}", {
             method: "POST",
             body: new FormData(document.querySelector('#form'))
