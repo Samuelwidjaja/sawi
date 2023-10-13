@@ -1,6 +1,6 @@
 # views.py in the 'main' app
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseNotFound, HttpResponseRedirect
 from main.forms import ItemForm
 from django.urls import reverse
 from django.http import HttpResponse
@@ -14,22 +14,26 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/login')
 def show_main(request):
     items = Item.objects.filter(user=request.user)
     total = items.count()
 
+    last_login = request.COOKIES.get('last_login', '')  # Use get method to safely access the value
+
     context = {
         'name': request.user.username,
-        'class': 'PBP A', # Kelas PBP kamu
-        'title' : 'Sawi Trading Card',
+        'class': 'PBP A',  # Kelas PBP kamu
+        'title': 'Sawi Trading Card',
         'items': items,
         'total': total,
-        'last_login': request.COOKIES['last_login'],
+        'last_login': last_login,
     }
 
     return render(request, "main.html", context)
+
 
 def create_item(request):
     form = ItemForm(request.POST or None)
@@ -112,3 +116,22 @@ def hapus(request,id):
     data.delete()
     return HttpResponseRedirect(reverse('main:show_main'))
 
+def get_item_json(request):
+    product_item = Item.objects.all()
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Item(name=name, price=price,amount = amount, description=description, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
