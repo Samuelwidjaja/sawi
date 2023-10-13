@@ -348,6 +348,7 @@ Namun, untuk memelihara proyek lama atau ketika berurusan dengan kode lama yang 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 Pada main.HTML mengubah button add item menjadi AJAX, membuat fungsi add item, refresh item yang baru. Kemudian menambahkan design form untuk ajax.
 Pada urls menambahkan path get item dan add item agar terhubung.
+Mengubah dokku app name menjadi sesuai yang di tugas.
 Lalu menjalankan python manage.py collectstatic
 
 
