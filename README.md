@@ -346,8 +346,9 @@ Pilihan antara Fetch API dan jQuery tergantung pada kebutuhan proyek Anda dan ke
 Namun, untuk memelihara proyek lama atau ketika berurusan dengan kode lama yang menggunakan jQuery secara ekstensif, masih masuk akal untuk terus menggunakan jQuery. Ini adalah perpustakaan yang handal yang mengabstraksi banyak kompleksitas yang terkait dengan kompatibilitas lintas peramban.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
-
-
+Pada main.HTML mengubah button add item menjadi AJAX, membuat fungsi add item, refresh item yang baru. Kemudian menambahkan design form untuk ajax.
+Pada urls menambahkan path get item dan add item agar terhubung.
+Lalu menjalankan python manage.py collectstatic
 
 
 
