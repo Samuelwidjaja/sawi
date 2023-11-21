@@ -1,5 +1,7 @@
-from django.urls import path
-from main.views import show_main, create_item, show_json, show_json_by_id, show_xml,show_xml_by_id, add_amount, reduce_amount, hapus, get_item_json, add_item_ajax
+from django.urls import include, path
+from authentication.views import logout
+from main.views import create_product_flutter, show_main, create_item, show_json, show_json_by_id, show_xml,show_xml_by_id, add_amount, reduce_amount, hapus, get_item_json
+from main.views import add_item_ajax # type: ignore
 from main.views import register #sesuaikan dengan nama fungsi yang dibuat
 from main.views import login_user #sesuaikan dengan nama fungsi yang dibuat
 from main.views import logout_user
@@ -19,6 +21,9 @@ urlpatterns = [
     path('reduce_amount/<int:id>', reduce_amount, name='reduce_amount'), # type: ignore
     path('hapus/<int:id>', hapus, name='hapus'),  # type: ignore
     path('get_item_json/', get_item_json, name='get_item_json'),
-    path('add_item_ajax/', add_item_ajax, name='add_item_ajax')
+    path('add_item_ajax/', add_item_ajax, name='add_item_ajax'),
+    path('auth/', include('authentication.urls')),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
+    path('logout/', logout, name='logout'),
 
 ]
