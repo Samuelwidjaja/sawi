@@ -22,7 +22,6 @@ urlpatterns = [
     path('hapus/<int:id>', hapus, name='hapus'),  # type: ignore
     path('get_item_json/', get_item_json, name='get_item_json'),
     path('add_item_ajax/', add_item_ajax, name='add_item_ajax'),
-    path('auth/', include('authentication.urls')),
     path('create-flutter/', create_product_flutter, name='create_product_flutter'),
     path('logout/', logout, name='logout'),
 

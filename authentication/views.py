@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import logout as auth_logout
 
 @csrf_exempt
 def login(request):
@@ -14,7 +15,7 @@ def login(request):
             auth_login(request, user)
             # Status login sukses.
             return JsonResponse({
-                "username": user.username, # type: ignore
+                "username": user.username,  # type: ignore
                 "status": True,
                 "message": "Login sukses!"
                 # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
